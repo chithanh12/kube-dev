@@ -66,6 +66,10 @@ helm -n ingress install -f ./kong/values.yaml kong ./kong
 ```
 helm -n ingress install -f ./kong/values.yaml test ./kong --dry-run --debug
 ```
+5. Install Kong Admin GUI by using the command
+```
+kubectl -ningress apply -f ./konga/deployment.yaml 
+```
 
 ## Visual your minikube with dashboard
 You can easily manage your cluster with a built in dashboard installed in minikube (like Rancher) by the command:
