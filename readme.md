@@ -59,16 +59,16 @@ kubectl create namespace ingress
 
 3. Thirdly, you install Kong by using helm with the default value 
 ```
-helm -n ingress install -f ./kong/values.yaml kong ./kong   
+helm -n ingress install -f ./local-cluster/kong/values.yaml kong ./kong   
 ```
 
 4. In additional, you can review what exactly helm install by using the helm dry-run for above command:
 ```
-helm -n ingress install -f ./kong/values.yaml test ./kong --dry-run --debug
+helm -n ingress install -f ./local-cluster/kong/values.yaml test ./kong --dry-run --debug
 ```
 5. Install Kong Admin GUI by using the command
 ```
-kubectl -ningress apply -f ./konga/deployment.yaml 
+kubectl -ningress apply -f ./local-cluster/konga/deployment.yaml 
 ```
 
 ## Visual your minikube with dashboard

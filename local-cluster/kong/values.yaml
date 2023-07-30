@@ -12,7 +12,6 @@ kong:
     admin_gui_error_log: /dev/stderr
     portal_api_error_log: /dev/stderr
     prefix: /kong_prefix/
-    trusted_ips: "10.0.0.0/8"
     real_ip_header: "X-Forwarded-For"
     headers: "latency_tokens"
     KONG_CLIENT_MAX_BODY_SIZE: 256m
@@ -40,14 +39,11 @@ kong:
               values:
               - kong-internal
           topologyKey: topology.kubernetes.io/zone
-  resources:
-    requests:
-      cpu: 150m
-      memory: 800Mi
-    limits:
-      cpu: 400m
-      memory: 1500Mi
+  
   ingressController:
+    ingressClass: kong-external
+    env:
+      CONTROLLER_INGRESS_CLASS: kong-external
     enabled: true
     resources:
       requests:

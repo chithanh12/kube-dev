@@ -1,0 +1,5 @@
+cluster: https://kubernetes.default.svc
+project: default
+repoURL: git@github.com:chithanh12/kube-dev.git
+repoBranch: main
+clusterName: kube-dev-cluster
