@@ -7,4 +7,4 @@ clusterName: local-cluster
 microservices:
   - echo 
   - hello
-  - word 
+  - world 
