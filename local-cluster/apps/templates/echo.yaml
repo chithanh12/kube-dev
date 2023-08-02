@@ -1,3 +1,4 @@
+{{ range .Values.microservices }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -9,17 +10,17 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.project }}
+  project: {{ $.Values.project }}
   destination:
     namespace: dev
-    server: {{ .Values.cluster }}
+    server: {{ $.Values.cluster }}
   source:
-    repoURL: {{ .Values.repoURL }}
-    targetRevision: {{ .Values.repoBranch }}
-    path: {{ .Values.clusterName }}/services
+    repoURL: {{ $.Values.repoURL }}
+    targetRevision: {{ $.Values.repoBranch }}
+    path: {{ $.Values.clusterName }}/services
     helm: 
       valueFiles:
-        - apps/echo-values.yaml
+        - apps/{{ . }}.yaml
   syncPolicy:
     automated:
       prune: true
@@ -31,3 +32,5 @@ spec:
   - kind: Service
     jsonPointers:
     - /spec/selector
+
+{{ end }}
