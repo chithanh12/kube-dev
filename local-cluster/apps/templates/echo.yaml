@@ -9,14 +9,17 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
+  project: {{ .Values.project }}
   destination:
     namespace: dev
     server: {{ .Values.cluster }}
-  project: {{ .Values.project }}
   source:
     repoURL: {{ .Values.repoURL }}
     targetRevision: {{ .Values.repoBranch }}
-    path: {{ .Values.clusterName }}/namespaces/dev
+    path: {{ .Values.clusterName }}/services
+    helm: 
+      valueFiles:
+        - {{ .Values.clusterName }}/namespaces/dev/echo-values.yaml
   syncPolicy:
     automated:
       prune: true
