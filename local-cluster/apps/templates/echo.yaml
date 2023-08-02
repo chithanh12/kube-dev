@@ -19,7 +19,7 @@ spec:
     path: {{ .Values.clusterName }}/services
     helm: 
       valueFiles:
-        - {{ .Values.clusterName }}/namespaces/dev/echo-values.yaml
+        - apps/echo-values.yaml
   syncPolicy:
     automated:
       prune: true
