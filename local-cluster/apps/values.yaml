@@ -8,3 +8,4 @@ microservices:
   - echo 
   - hello
   - world 
+  - hihi
