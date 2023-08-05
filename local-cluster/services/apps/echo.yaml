@@ -23,6 +23,10 @@ ingress:
       paths:
         - path: /echo
           pathType: Prefix
+    - host: xxx.com 
+      paths:
+        - path: /xxx
+          pathType: Prefix
   tls: []
 autoscaling:
   enabled: false
