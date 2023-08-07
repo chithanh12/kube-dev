@@ -6,6 +6,3 @@ clusterName: local-cluster
 
 microservices:
   - echo 
-  - hello
-  - world 
-  - hihi
